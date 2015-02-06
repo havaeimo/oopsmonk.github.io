@@ -34,15 +34,58 @@
   </div>
   <article class="post">
     <div class="headline-wrap">
-      {% if page.link %}
-        <h1><a href="{{ page.link }}">{{ page.title }}</a></h1>
-      {% else %}
-        <h1><a href="{{ site.url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
-      {% endif %}
+      {% if page.date %}
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished"><i class="fa fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</time>{% endif %}
+      
+      {% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}
+      <h1 itemprop="name">{{ page.title }}</h1>
+      <h2>{{ page.tagline }}</h2>
     </div><!--/ .headline-wrap -->
+
     <div class="article-wrap">
       {{ content }}
       <hr />
+
+      <!-- Pagination -->
+      <ul class="pagination">
+	      {% if page.previous %}
+	        <li class="prev"><a href="{{ page.previous.url }}" rel="prev">&larr; {{ page.previous.title }}</a></li>
+	      {% else %}
+		  	<li class="prev disabled"></li>
+	      {% endif %}
+	      {% if page.next %}
+	        <li class="next"><a href="{{ page.next.url }}" rel="next">{{ page.next.title }} &rarr;</a></li>
+	      {% else %}
+		  	<li class="next disabled"></li>
+	      {% endif %}
+	  </ul>
+	  
+      <hr style="visibility:hidden;">
+
+      <!-- Categories -->
+      {% unless page.categories == empty %}
+	  <ul class="categories">
+	      <li><i class="fa fa-folder-open fa-2"></i></li>
+	      {% assign categories_list = page.categories %}
+	      
+	      {% if categories_list.first[0] == null %}
+		    {% for category in categories_list %} 
+		    	<li data-size="{{ site.categories[category].size }}"><a href="/categories/#{{ category }}">
+		    		{{ category | join: "/" }}
+		    	</a></li>
+		    {% endfor %}
+		  {% else %}
+		    {% for category in categories_list %} 
+		    	<li data-size="{{ category[1].size }}"><a href="/categories/#{{ category[0] }}">
+		    		{{ category[0] | join: "/" }}
+		    	</a></li>
+		    {% endfor %}
+		  {% endif %}
+	      {% assign categories_list = nil %}
+	  
+	  </ul>
+	  {% endunless %} 
+
       <footer role="contentinfo">
         {% if page.share != false %}{% include _social-share.html %}{% endif %}
         <p class="byline"><strong>{{ page.title }}</strong> was published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>{% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}.</p>
