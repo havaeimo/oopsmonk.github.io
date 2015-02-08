@@ -1,0 +1,74 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include _head.html %}
+</head>
+
+<body class="articles" itemscope itemtype="http://schema.org/WebPage">
+
+{% include _browser-upgrade.html %}
+
+{% include _navigation.html %}
+
+<header></header>
+
+<div class="article-author-side">
+  <img src="{{ site.url }}/assets/images/{{ site.owner.avatar }}" class="bio-photo" alt="{{ site.owner.name }}">
+    {% include _author-bio.html %}
+</div>
+
+<div id="index" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <h1 itemprop="name">{{ page.title }}</h1>
+
+        <section class="tags">
+            <ul class="nav nav-pills">
+                {% for tag in site.tags %}
+                <li class="red" style="margin:5px">
+                    <a href="/tags/{{ tag | first | slugize }}/"> {{ tag | first }}&nbsp;<span class="badge">{{ tag | last | size}}</span></a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+    <div>
+        <section>
+        {% capture tags %}
+            {% for tag in site.tags %}
+                {{ tag[0] }}
+            {% endfor %}
+        {% endcapture %}
+        
+        {% assign sortedtags = tags | split:' ' | sort %}
+        
+        {% for tag in sortedtags %}
+            <h3>{{tag}}</h3>
+            <ul>
+                {% for post in site.posts %}
+                    {% for otag in post.tags %}
+                        {% if tag == otag %}
+                            <li class="alink"><a href="{{ post.url }}" class="red-link">{{ post.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}    
+            </ul>
+        {% endfor %}
+        </section>
+    </div>
+
+{% assign sortedtags = nil %}
+
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    {% include _footer.html %}
+  </footer>
+</div><!-- /.footer-wrap -->
+
+{% include _scripts.html %}
+  
+</body>
+</html>
