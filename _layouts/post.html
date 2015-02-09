@@ -38,7 +38,7 @@
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished"><i class="fa fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</time>{% endif %}
       
       {% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}
-      <h1 itemprop="name">{{ page.title }}</h1>
+      <h1 class="postTitle" itemprop="name">{{ page.title }}</h1>
       <h2>{{ page.tagline }}</h2>
     </div><!--/ .headline-wrap -->
 
@@ -64,7 +64,7 @@
 
       <!-- Categories -->
       {% unless page.categories == empty %}
-	  <ul class="categories">
+	  <ul class="tag_category_list">
 	      <li><i class="fa fa-folder-open fa-2"></i></li>
 	      {% assign categories_list = page.categories %}
 	      
@@ -83,14 +83,27 @@
               {% endif %}
 	      {% assign categories_list = nil %}
 	  
-	  </ul>
+      </ul>
       {% endunless %} 
 
-      <footer role="contentinfo">
-        {% if page.share != false %}{% include _social-share.html %}{% endif %}
-        <p class="byline"><strong>{{ page.title }}</strong> was published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>{% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}.</p>
-      </footer>
+      <!-- tags -->
+      {% unless page.tags == empty %}
+
+      <ul class="tag_category_list">
+          <li><i class="fa fa-tags fa-2"></i></li>
+          {% assign tags_list = page.tags %}
+            {% for tag in tags_list %} 
+                <li ><a href="/tag/{{ tag }}">
+                        {{ tag | join: "/" }}
+                </a></li>
+            {% endfor %}
+          {% assign tags_list = nil %}
+	  
+      </ul>
+      {% endunless %} 
+
     </div><!-- /.article-wrap -->
+      <hr style="visibility:hidden;">
   {% if site.owner.disqus-shortname and page.comments == true %}
     <section id="disqus_thread"></section><!-- /#disqus_thread -->
   {% endif %}
@@ -98,15 +111,6 @@
 </div><!-- /#main -->
 
 <div class="footer-wrap">
-  <div class="related-articles">
-  <h4>You might also enjoy <small class="pull-right">(<a href="{{ site.url }}/posts/">View all posts</a>)</small></h4>
-    <ul>
-    {% for post in site.related_posts limit:3 %}
-      <li><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-    {% endfor %}
-    </ul>
-    <hr />
-  </div><!-- /.related-articles -->
   <footer>
     {% include _footer.html %}
   </footer>

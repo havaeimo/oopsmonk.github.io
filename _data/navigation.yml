@@ -3,11 +3,14 @@
 - title: About
   url: /about/
 
-- title: Blog
+- title: Articles
   url: /posts/
 
-- title: Theme Setup
-  url: /theme-setup/
+- title: Categories
+  url: /categories/
+
+- title: Tags
+  url: /tags/
 
 - title: Feed
   url: /feed.xml
