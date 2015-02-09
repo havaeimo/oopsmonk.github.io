@@ -2,7 +2,7 @@
 layout: post
 title: "uWSGI & Nginx on Ubuntu"
 modified:
-categories: Note
+categories: TechNotes
 excerpt:  
 comments: true
 tags: [Nginx, Ubuntu]

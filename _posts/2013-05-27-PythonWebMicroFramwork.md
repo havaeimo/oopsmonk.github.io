@@ -2,13 +2,13 @@
 layout: post
 title: "Web Micro Framework Battle"
 modified:
-categories: Note
+categories: TechNotes
 excerpt:  
 comments: true
-tags: [python]
+tags: [Python, WebDev]
 image:
   feature:
-date: 2013-05-21T00:53:31+08:00
+date: 2013-05-27T00:53:31+08:00
 ---
 
 ##WSGI Micro Framworks  

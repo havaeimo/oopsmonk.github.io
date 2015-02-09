@@ -2,10 +2,10 @@
 layout: post
 title: "About Markup"
 modified:
-categories: Note
+categories: TechNotes
 excerpt:  
 comments: true
-tags: [markdown]
+tags: [Markdown]
 image:
   feature:
 date: 2013-05-21T00:53:31+08:00

@@ -1,3 +1,35 @@
 - slug: markdown
   name: Markdown
 
+- slug: aws
+  name: AWS
+
+- slug: jquery
+  name: jQuery 
+
+- slug: nginx
+  name: Nginx
+
+- slug: ssh
+  name: ssh
+
+- slug: database
+  name: Database
+
+- slug: linux 
+  name: Linux 
+
+- slug: python
+  name: Python
+
+- slug: ubuntu
+  name: Ubuntu 
+
+- slug: git
+  name: git 
+
+- slug: respberrypi
+  name: RaspberyyPi
+
+- slug: webdev
+  name: WebDev
