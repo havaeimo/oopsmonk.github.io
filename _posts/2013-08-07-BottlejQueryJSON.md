@@ -17,7 +17,7 @@ date: 2013-08-07T01:53:31+08:00
 
 ##Install bottle:  
 
-```bash
+```
 $ sudo apt-get install python-setuptools
 $ easy_install bottle
 ```
@@ -84,7 +84,7 @@ run(host='localhost', port=8080, reloader=True)
 
 ###Test GET request:  
 
-```bash
+```
 $ curl -i -X GET http://localhost:8080/bottle/jsontest
 
 HTTP/1.0 200 OK
@@ -106,8 +106,11 @@ localhost - - [08/Aug/2013 00:03:53] "GET /bottle/jsontest HTTP/1.1" 200 25
 
 ###Test POST request:  
 
-```bash
-$ curl -X POST -H "Content-Type: application/json" -d '{"name":"OopsMonk","pwd":"abc"}' http://localhost:8080/bottle/jsontest
+```
+$ curl -X POST -H "Content-Type: application/json" \ 
+-d '{"name":"OopsMonk","pwd":"abc"}' \ 
+http://localhost:8080/bottle/jsontest
+
 {"Status": "Success!"}
 ```  
 
@@ -126,41 +129,42 @@ Create 4 buttons in the index.html file:
 * __[jQuery.getJSON][jjson]__ : use jQuery.getJSON API.  
     _bottle debug message:_   
 
-    ```
-    GET Header :
-     {'Content-Length': '', 'Accept-Language': 'zh-tw,zh;q=0.8,en-us;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '127.0.0.1:8080', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0', 'Connection': 'close', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://192.168.1.38/bottle/index.html', 'Content-Type': 'text/plain'}  
-    localhost - - [08/Aug/2013 00:42:08] "GET /bottle/jsontest HTTP/1.0" 200 25
-    ```
+```
+GET Header :
+ {'Content-Length': '', 'Accept-Language': 'zh-tw,zh;q=0.8,en-us;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '127.0.0.1:8080', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0', 'Connection': 'close', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://192.168.1.38/bottle/index.html', 'Content-Type': 'text/plain'}  
+localhost - - [08/Aug/2013 00:42:08] "GET /bottle/jsontest HTTP/1.0" 200 25
+```
 
 * __[jQuery.post][jpost]__ : use jQuery.post API.   
     Unfortunately it's not work, because the content-Type is fixed 'application/x-www-form-urlencoded; charset=UTF-8', that's a problem when using bottle.request.json API to retrieve JSON from request.  
     For this perpose we have to overwirte [jQuery.post][jpost] or use [jQuery.ajax][ajax].    
     _bottle debug message:_   
 
-    ```
-    POST Header :
-     {'Content-Length': '22', 'Accept-Language': 'zh-tw,zh;q=0.8,en-us;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '127.0.0.1:8080', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0', 'Connection': 'close', 'X-Requested-With': 'XMLHttpRequest', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Referer': 'http://192.168.1.38/bottle/index.html', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-    data : None
-    localhost - - [08/Aug/2013 00:55:17] "POST /bottle/jsontest HTTP/1.0" 200 21
-    ```
+```
+POST Header :
+ {'Content-Length': '22', 'Accept-Language': 'zh-tw,zh;q=0.8,en-us;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '127.0.0.1:8080', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0', 'Connection': 'close', 'X-Requested-With': 'XMLHttpRequest', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Referer': 'http://192.168.1.38/bottle/index.html', 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+data : None
+localhost - - [08/Aug/2013 00:55:17] "POST /bottle/jsontest HTTP/1.0" 200 21
+```
  
 * __[jQuery.ajax GET][ajax], [jQuery.ajax POST][ajax]__ : use jQuery.ajax API.   
-    _GET debug message:_   
 
-    ```
-    GET Header :
-     {'Content-Length': '', 'Accept-Language': 'zh-tw,zh;q=0.8,en-us;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '127.0.0.1:8080', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0', 'Connection': 'close', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://192.168.1.38/bottle/index.html', 'Content-Type': 'text/plain'}
-    localhost - - [08/Aug/2013 01:00:17] "GET /bottle/jsontest HTTP/1.0" 200 25
-    ```
+_GET debug message:_   
+
+```
+GET Header :
+ {'Content-Length': '', 'Accept-Language': 'zh-tw,zh;q=0.8,en-us;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '127.0.0.1:8080', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0', 'Connection': 'close', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://192.168.1.38/bottle/index.html', 'Content-Type': 'text/plain'}
+localhost - - [08/Aug/2013 01:00:17] "GET /bottle/jsontest HTTP/1.0" 200 25
+```
     
-    _POST debug message:_   
+_POST debug message:_   
 
-    ```
-    POST Header :
-     {'Content-Length': '22', 'Accept-Language': 'zh-tw,zh;q=0.8,en-us;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '127.0.0.1:8080', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0', 'Connection': 'close', 'X-Requested-With': 'XMLHttpRequest', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Referer': 'http://192.168.1.38/bottle/index.html', 'Content-Type': 'application/json; charset=utf-8'}
-    data : {u'id': 3, u'name': u'Ping'}
-    localhost - - [08/Aug/2013 01:01:40] "POST /bottle/jsontest HTTP/1.0" 200 22
-    ```
+```
+POST Header :
+ {'Content-Length': '22', 'Accept-Language': 'zh-tw,zh;q=0.8,en-us;q=0.5,en;q=0.3', 'Accept-Encoding': 'gzip, deflate', 'Host': '127.0.0.1:8080', 'Accept': 'application/json, text/javascript, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0', 'Connection': 'close', 'X-Requested-With': 'XMLHttpRequest', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Referer': 'http://192.168.1.38/bottle/index.html', 'Content-Type': 'application/json; charset=utf-8'}
+data : {u'id': 3, u'name': u'Ping'}
+localhost - - [08/Aug/2013 01:01:40] "POST /bottle/jsontest HTTP/1.0" 200 22
+```
 
 [jjson]: http://api.jquery.com/jQuery.getJSON/  
 [jpost]: http://api.jquery.com/jQuery.post/  

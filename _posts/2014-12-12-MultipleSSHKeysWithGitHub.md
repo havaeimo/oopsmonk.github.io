@@ -28,7 +28,7 @@ Here are github account and work account.
 
 Modify **`~/.ssh/config`** 
 
-```bash
+```
 # Default github
 Host github.com
     HostName github.com
@@ -46,23 +46,23 @@ Host work.gitserver.com
 
 * GitHub Project: 
 
-    ```
-    $ git clone https://github.com/abc/projectA.git  
-    $ cd projectA
-    #github account
-    $ git config user.name "oopsmonk"
-    $ git config user.email "oopsmonk@example.com.tw"
-    ```
+```
+$ git clone https://github.com/abc/projectA.git  
+$ cd projectA
+#github account
+$ git config user.name "oopsmonk"
+$ git config user.email "oopsmonk@example.com.tw"
+```
 
 * Working Project: 
 
-    ```bash
-    $ git clone https://work.com.tw/repo/projectW.git  
-    $ cd projectW
-    #working account
-    $ git config user.name "SamChen"
-    $ git config user.email "SamChen@example.com.tw"
-    ```
+```
+$ git clone https://work.com.tw/repo/projectW.git  
+$ cd projectW
+#working account
+$ git config user.name "SamChen"
+$ git config user.email "SamChen@example.com.tw"
+```
 
 **Now you can deal with git repositories using different accounts.** 
 
@@ -70,7 +70,7 @@ Host work.gitserver.com
 
 Check key list 
 
-```bash
+```
 # No ssh-agent running 
 $ ssh-add -l
 Could not open a connection to your authentication agent.
@@ -79,7 +79,7 @@ $
 
 Enable ssh-agent (Ubuntu12.04): 
 
-```bash
+```
 #enable ssh-agent
 $ eval `ssh-agent -s`
 

@@ -49,84 +49,84 @@ declare -i b=$a+$a
 
 * String is a number  
 
-    ```bash
-    if [[ $var =~ ^-?[0-9]+$ ]]; then
-        echo "$var is a number"
-    fi
+```bash
+if [[ $var =~ ^-?[0-9]+$ ]]; then
+    echo "$var is a number"
+fi
 
-    if [[ ! $var =~ ^-?[0-9]+$ ]]; then
-        echo "$var is not a number"
-    fi
-    ```
+if [[ ! $var =~ ^-?[0-9]+$ ]]; then
+    echo "$var is not a number"
+fi
+```
 
 * Find String between two words or characters 
 
-    ```bash
-    var="Hello there are (123340) and (123)"
-    #last string between '(' and ')'.
-    substr=$( echo $var | sed 's/.*(\(.*\)).*/\1/' )
-    #String between '(' and ')'.
-    substr=$( echo $var | awk -v FS="(\(|\))" '{print $2 " " $4}' )
+```bash
+var="Hello there are (123340) and (123)"
+#last string between '(' and ')'.
+substr=$( echo $var | sed 's/.*(\(.*\)).*/\1/' )
+#String between '(' and ')'.
+substr=$( echo $var | awk -v FS="(\(|\))" '{print $2 " " $4}' )
 
-    #String between 'there' and 'and'.
-    substr=$( echo $var | awk -v FS="(there|and)" '{print $2}' )
-    #String between 'there' and 'and'.
-    substr=$( echo $var | sed 's/.*there\(.*\)and.*/\1/' )
-    #String between 'there' and 'and'.
-    substr=$( echo $var | grep -o -P '(?<=there).*(?=and)' )
-    ```
+#String between 'there' and 'and'.
+substr=$( echo $var | awk -v FS="(there|and)" '{print $2}' )
+#String between 'there' and 'and'.
+substr=$( echo $var | sed 's/.*there\(.*\)and.*/\1/' )
+#String between 'there' and 'and'.
+substr=$( echo $var | grep -o -P '(?<=there).*(?=and)' )
+```
 
 ## Loop  
 
 * read variables  
 
-    ```bash
-    #read from file
-    echo "123, abc, hello world!" > /tmp/test
-    echo "12 43, ddd, !" >> /tmp/test
+```bash
+#read from file
+echo "123, abc, hello world!" > /tmp/test
+echo "12 43, ddd, !" >> /tmp/test
 
-    while IFS=',' read var1 var2 var3
-    do
-        echo "var1=$var1 var2=$var2 var3=$var3"
-    done < "/tmp/test"
+while IFS=',' read var1 var2 var3
+do
+    echo "var1=$var1 var2=$var2 var3=$var3"
+done < "/tmp/test"
 
 
-    #read from variable
-    x="one, two, three"
-    while IFS=',' read var1 var2 var3
-    do
-        echo "var1=$var1 var2=$var2 var3=$var3"
-    done <<< $x
-    ``` 
+#read from variable
+x="one, two, three"
+while IFS=',' read var1 var2 var3
+do
+    echo "var1=$var1 var2=$var2 var3=$var3"
+done <<< $x
+``` 
 
 * iterate IP address
 
-    ```bash
-    #iterate class C ip address
-    for i in 192.168.100.{1..10}
+```bash
+#iterate class C ip address
+for i in 192.168.100.{1..10}
+do
+    echo "$i"
+done
+
+#iterate class B ip address
+for x in 192.168.{1..5}
+do
+    for i in $x.{1..10}
     do
         echo "$i"
     done
-
-    #iterate class B ip address
-    for x in 192.168.{1..5}
-    do
-        for i in $x.{1..10}
-        do
-            echo "$i"
-        done
-    done
-    ```
+done
+```
 
 * infinite while loop 
 
-    ```bash
-    while :
-    do
-        echo "infinite loops [ CTRL+C to stop]" 
-        sleep 5
-    done
-    ```
+```bash
+while :
+do
+    echo "infinite loops [ CTRL+C to stop]" 
+    sleep 5
+done
+```
 
 ## [Array](http://www.linuxjournal.com/content/bash-arrays)  
 

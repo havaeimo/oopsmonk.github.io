@@ -13,12 +13,6 @@ date: 2013-08-26T01:53:31+08:00
 
 This is a git tutorial, create svn upstream on GitHub.  
 Use [MOC](http://moc.daper.net/) project as a example.  
-  
-
-Ref :  
-[Converting a Subverion repository to Git](http://john.albin.net/git/convert-subversion-to-git)  
-[Git SVN Tutorial](http://trac.parrot.org/parrot/wiki/git-svn-tutorial)  
-
 
 #Checkout SVN and push to GitHub.    
 Install packages  
@@ -27,7 +21,7 @@ Install packages
 
 Create git repository (it will take a long time)  
 
-```bash
+```
 $ git svn clone svn://daper.net/moc/trunk --no-metadata ./moc-svn-git  
 $ cat moc-svn-git/.git/config  
 [core]
@@ -43,14 +37,14 @@ $ cat moc-svn-git/.git/config
 
 Update SVN repository  
 
-```bash
+```
 $ git svn fetch
 $ git cehckout remotes/git-svn -b svn-upstream  
 ```
 
 Creat repository on GitHub  
 
-```bash
+```
 $ cd moc-svn-git  
 $ git svn show-ignore > .gitignore  
 $ git add -f .gitignore  
@@ -69,7 +63,7 @@ After this step, we create two folders.
 
 #Add GitHub repository to workspace  
 
-```bash
+```
 $ cd moc-svn-git  
 $ git remote add github-moc https://github.com/'your-account'/moc-git.git  
 $ git remote update  
@@ -91,7 +85,7 @@ $ git branch -a
 
 #Merge upstream  
 
-```bash
+```
 $ cd moc-svn-git
 $ git pull 
 fetch remotes/git-svn
@@ -104,3 +98,7 @@ $ git add .
 $ git commit
 $ git push
 ```
+
+Ref:  
+[Converting a Subverion repository to Git](http://john.albin.net/git/convert-subversion-to-git)  
+[Git SVN Tutorial](http://trac.parrot.org/parrot/wiki/git-svn-tutorial)  
