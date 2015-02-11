@@ -39,19 +39,17 @@ date: 2013-05-27T00:53:31+08:00
     Makes web apps. A small RESTful library.  
 
 ##Micro Framworks Battle  
-
-Rank     Framwork               Point  
------ ----------------------- ---------
-1     **Bottle**              7
-2     pesto                   6
-3     itty                    4
-4     **flask**, cgi+wsgiref  3
-5     werkzeug                2
-6     **web.py**              1
-7     cherrypy                0
-8     **bobo**                -7
-9     aspen.io                -5
-
+Rank | Framwork | Point 
+----- | ----- | ----- 
+1 |  **Bottle** | 7 
+2 |  pesto  |  6 
+3 |  itty   |  4 
+4 |  **flask**, cgi+wsgiref | 3 
+5 |  werkzeug    | 2 
+6 |  **web.py**  | 1 
+7 |  cherrypy    | 0 
+8 |  **bobo**    | -7 
+9 |  aspen.io    | -5 
 
 Reference :   
 [Web Micro Framework Battle 1](http://www.slideshare.net/r1chardj0n3s/web-microframework-battle)  

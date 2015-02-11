@@ -12,7 +12,6 @@ date: 2013-06-19T01:53:31+08:00
 ---
 
 有時在整理照片或文件時, 需要比對2個資料匣, 把重覆的檔案拿掉.  
-
 [**Dwonload Source Here**](https://raw.github.com/oopsmonk/markdown-note/master/shell-script/comp-rm.sh)  
 
 ```bash

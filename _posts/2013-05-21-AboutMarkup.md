@@ -21,7 +21,6 @@ date: 2013-05-21T00:53:31+08:00
 ##Markdown Setup  
 
 目前是用Vim + [Pandoc][id-pan]來寫Markdown, 網路上也有[Web editor][id-we], 或是windows平台的[Markdownpad][id-dpad], 但Web用起來不順手, Markdownpad不能跨平台. 用Vim麻煩的是preview, 寫完要手動用[Pandoc][id-pan]轉成html, 之後直接將轉出來的html, 直接貼到blogger.  
-
 一般沒有CSS的用法:  
 
     $ pandoc README.md -o out.html  

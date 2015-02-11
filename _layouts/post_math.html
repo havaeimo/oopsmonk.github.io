@@ -1,0 +1,126 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+{% include _head.html %}
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body class="post">
+
+{% include _browser-upgrade.html %}
+
+{% include _navigation.html %}
+
+{% if page.image.feature %}
+  <div class="image-wrap">
+  <img src=
+    {% if page.image.feature contains 'http' %}
+      "{{ page.image.feature }}"
+    {% else %}
+      "{{ site.url }}/images/{{ page.image.feature }}"
+    {% endif %}
+  alt="{{ page.title }} feature image">
+  {% if page.image.credit %}
+    <span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>
+  {% endif %}
+  </div><!-- /.image-wrap -->
+{% endif %}
+
+<div id="main" role="main">
+  <div class="article-author-side">
+    {% include _author-bio.html %}
+    {% include _license.html %}
+  </div>
+  <article class="post">
+    <div class="headline-wrap">
+      {% if page.date %}
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished"><i class="fa fa-calendar"></i> {{ page.date | date: "%B %d, %Y" }}</time>{% endif %}
+      
+      {% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %}
+      <h1 class="postTitle" itemprop="name">{{ page.title }}</h1>
+      <h2>{{ page.tagline }}</h2>
+    </div><!--/ .headline-wrap -->
+
+    <div class="article-wrap">
+      {{ content }}
+      <hr />
+
+      <!-- Pagination -->
+      <ul class="pagination">
+	      {% if page.previous %}
+	        <li class="prev"><a href="{{ page.previous.url }}" rel="prev">&larr; {{ page.previous.title }}</a></li>
+	      {% else %}
+		  	<li class="prev disabled"></li>
+	      {% endif %}
+	      {% if page.next %}
+	        <li class="next"><a href="{{ page.next.url }}" rel="next">{{ page.next.title }} &rarr;</a></li>
+	      {% else %}
+		  	<li class="next disabled"></li>
+	      {% endif %}
+	  </ul>
+	  
+      <hr style="visibility:hidden;">
+
+      <!-- Categories -->
+      {% unless page.categories == empty %}
+	  <ul class="tag_category_list">
+	      <li><i class="fa fa-folder-open fa-2"></i></li>
+	      {% assign categories_list = page.categories %}
+	      
+	      {% if categories_list.first[0] == null %}
+                {% for category in categories_list %} 
+                    <li data-size="{{ site.categories[category].size }}"><a href="/categories/#{{ category }}">
+                            {{ category | join: "/" }}
+                    </a></li>
+                {% endfor %}
+              {% else %}
+                {% for category in categories_list %} 
+                    <li data-size="{{ category[1].size }}"><a href="/categories/#{{ category[0] }}">
+                            {{ category[0] | join: "/" }}
+                    </a></li>
+                {% endfor %}
+              {% endif %}
+	      {% assign categories_list = nil %}
+	  
+      </ul>
+      {% endunless %} 
+
+      <!-- tags -->
+      {% unless page.tags == empty %}
+
+      <ul class="tag_category_list">
+          <li><i class="fa fa-tags fa-2"></i></li>
+          {% assign tags_list = page.tags %}
+            {% for tag in tags_list %} 
+                <li ><a href="/tag/{{ tag }}">
+                        {{ tag | join: "/" }}
+                </a></li>
+            {% endfor %}
+          {% assign tags_list = nil %}
+	  
+      </ul>
+      {% endunless %} 
+
+    </div><!-- /.article-wrap -->
+      <hr style="visibility:hidden;">
+  {% if site.owner.disqus-shortname and page.comments == true %}
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  {% endif %}
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrap">
+  <footer>
+    {% include _footer.html %}
+  </footer>
+</div><!-- /.footer-wrap -->
+
+{% include _scripts.html %}	        
+
+</body>
+</html>

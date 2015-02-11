@@ -13,7 +13,6 @@ date: 2013-05-28T01:53:31+08:00
 
 Currently, AWS web console not provide folder downloading. We can use [s3cmd][] or [s3Browser][] for this purpose.  
 [s3Browser][] is a freeware Windows client for S3 and CloudFront.  
-
 s3cmd download Bucket folder:  
 
     s3cmd sync s3://bucketname/folder /local/folder  

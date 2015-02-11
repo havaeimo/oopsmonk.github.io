@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post_math
 title: "Pandoc's Markdown Reference"
 modified:
 categories: TechNotes
@@ -25,7 +25,6 @@ Pandoc實現了基本的Markdown語法外, 還加了一些extention.
 
 ##Headers (Setext and atx)  
 Setext-style只有兩階也就是HTML語法裡的`h1`及`h2` tag,`-`跟`=`的個數沒有限制.     
-
 atx-style共有6階, `h1`~`h6`.
 
     # This is H1.
@@ -51,8 +50,7 @@ Output:
     **double asterisks**  
     __double underscores__  
 
-Output:
-
+Output:  
 *single asterisks*  
 _single underscores_  
 **double asterisks**  
@@ -89,13 +87,12 @@ Pandoc可以使用LaTeX來表示數學式子, 可參考[Getting Started with LaT
 
 output:  
 
-$a^2 = b^2 + c^2$  
-$x^{17} - 1$  
-$M^\bot = \{ f \in V' : f(m) = 0 \mbox{ for all } m \in M \}.$  
-$\[ \cos(\theta + \phi) = \cos \theta \cos \phi - \sin \theta \sin \phi \]$  
-$\[ |y - x| < \delta \]$ then $\[ |f(y) - f(x)| < \epsilon. \]$  
-\newcommand{\tuple}[1]{\langle #1 \rangle}  
-$\tuple{a, b, c}$
+$$a^2 = b^2 + c^2$$  
+$$x^{17} - 1$$  
+$$M^\bot = \{ f \in V' : f(m) = 0 \mbox{ for all } m \in M \}.$$  
+$$\[ \cos(\theta + \phi) = \cos \theta \cos \phi - \sin \theta \sin \phi \]$$  
+$$\[ |y - x| < \delta \]$ then $\[ |f(y) - f(x)| < \epsilon. \]$$  
+$$\newcommand{\tuple}[1]{\langle #1 \rangle}\tuple{a, b, c}$$
 
 ##Links  
 

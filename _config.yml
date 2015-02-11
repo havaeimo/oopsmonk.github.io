@@ -18,7 +18,8 @@ gems:
   - jekyll-sitemap
 
 redcarpet:
-  extensions: ["strikethrough"]
+  extensions: ["strikethrough", "tables", "no_intra_emphasis", "autolink"]
+  #extensions: ["strikethrough", "no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 #kramdown:
 #  auto_ids: true
 #  footnote_nr: 1

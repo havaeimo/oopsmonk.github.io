@@ -14,41 +14,45 @@ date: 2013-05-21T08:53:31+08:00
 
 ###Configure uWSGI  
 
-    $ sudo apt-get install python-dev python-pip  
-    $ sudo pip uwsgi  
-    ################# uWSGI configuration #################  
-    pcre = False  
-    kernel = Linux  
-    malloc = libc  
-    execinfo = False  
-    ifaddrs = True  
-    ssl = True  
-    matheval = False  
-    zlib = True  
-    locking = pthread_mutex  
-    plugin_dir = .  
-    timer = timerfd  
-    yaml = True  
-    json = False  
-    filemonitor = inotify  
-    routing = False  
-    debug = False  
-    zeromq = False  
-    capabilities = False  
-    xml = expat  
-    event = epoll  
-    ############## end of uWSGI configuration #############  
-    *** uWSGI is ready, launch it with /usr/local/bin/uwsgi ***  
-    Successfully installed uwsgi  
-    Cleaning up...  
-    $  
+```
+$ sudo apt-get install python-dev python-pip  
+$ sudo pip uwsgi  
+################# uWSGI configuration #################  
+pcre = False  
+kernel = Linux  
+malloc = libc  
+execinfo = False  
+ifaddrs = True  
+ssl = True  
+matheval = False  
+zlib = True  
+locking = pthread_mutex  
+plugin_dir = .  
+timer = timerfd  
+yaml = True  
+json = False  
+filemonitor = inotify  
+routing = False  
+debug = False  
+zeromq = False  
+capabilities = False  
+xml = expat  
+event = epoll  
+############## end of uWSGI configuration #############  
+*** uWSGI is ready, launch it with /usr/local/bin/uwsgi ***  
+Successfully installed uwsgi  
+Cleaning up...  
+$  
+```
 
 ###Test uWSGI  
 Create test file called `hello.py`:   
 
-    def application(env, start_response):  
-        start_response('200 OK', [('Content-Type','text/html')])  
-        return "Hello WSGI!!"  
+```python
+def application(env, start_response):  
+    start_response('200 OK', [('Content-Type','text/html')])  
+    return "Hello WSGI!!"  
+```
 
 Run uWSGI:  
 
@@ -67,16 +71,20 @@ Open browser connect on port 8000.
 The configure file path : `/etc/nginx/sites-enabled/default`  
 Add your site in nginx configure file.  
 
-        location /wsgi/ {
-                uwsgi_pass 127.0.0.1:8001;
-                include uwsgi_params;
-        }  
+```
+location /wsgi/ {
+    uwsgi_pass 127.0.0.1:8001;
+    include uwsgi_params;
+}  
+```
 
 We use localhost port 8001 for uwsgi protocol, and 80 port for nginx.  
 Run uwsgi and start nginx.  
 
-    $ uwsgi --socket :8001 --wsgi-file hello.py  
-    $ sudo service nginx start  
+```
+$ uwsgi --socket :8001 --wsgi-file hello.py  
+$ sudo service nginx start  
+```
 
 Test your web site:  
 
