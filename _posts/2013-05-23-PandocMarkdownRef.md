@@ -1,16 +1,19 @@
 ---
-layout: post_math
+layout: post-math
 title: "Pandoc's Markdown Reference"
-modified:
+modified: 2015-02-11T010:53:31+08:00
 categories: TechNotes
 excerpt:  
 comments: true
 tags: [Markdown]
 image:
   feature:
-date: 2013-05-21T01:53:31+08:00
+date: 2013-05-23T01:53:31+08:00
 ---
 
+<font color="red">
+####[2015-02-12]This article doesn't render properly since I switched from Google Blogger to Github Pages. I won't fix this problem.
+</font>
 Pandoc實現了基本的Markdown語法外, 還加了一些extention.   
 細節可參考:  
 [Pandoc's Markdown][pmd]  

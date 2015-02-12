@@ -96,10 +96,8 @@ $ ssh-add -L
 $ ssh-add -D
 ```
 
-**Now you can commit modifications to git repository without password.**
-
-
-Reference:  
+**Now you can commit modifications to git repository without password.**  
+References:  
 [Understanding ssh-agent and ssh-add](http://blog.joncairns.com/2013/12/understanding-ssh-agent-and-ssh-add/)  
 [How can I run ssh-add automatically, without password prompt?](http://unix.stackexchange.com/questions/90853/how-can-i-run-ssh-add-automatically-without-password-prompt)  
 
