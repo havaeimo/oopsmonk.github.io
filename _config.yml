@@ -19,7 +19,7 @@ gems:
 
 redcarpet:
   extensions: ["strikethrough", "tables", "no_intra_emphasis", "autolink"]
-  #extensions: ["strikethrough", "no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+  #extensions: ["strikethrough", "no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "footnotes"]
 #kramdown:
 #  auto_ids: true
 #  footnote_nr: 1
@@ -31,7 +31,7 @@ redcarpet:
 owner:
   name: OopsMonk
   avatar: bio-oopsmonk.jpg
-  bio: "Describe your self."
+  bio: "I'm happiest when I am studying new technologies or discovering new things. Challenges make me struggle but stronger."
   email: 
   disqus-shortname: oopsmonk
   twitter: oopsmonkTW
