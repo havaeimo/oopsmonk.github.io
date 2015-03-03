@@ -7,7 +7,7 @@ url:
 
 # Jekyll configuration
 
-permalink:   /blog/:year/:month/:day/:title.html
+permalink:   /blog/:year/:month/:day/:title
 #markdown:    kramdown
 markdown:    redcarpet
 highlighter: pygments
