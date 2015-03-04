@@ -59,34 +59,35 @@ Add schedule as below
 
 ##Report example  
 ####Raspberry Pi Hardware    
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-RPi.jpg">  
+![](/images/2014-07-21/20140721-RPi.jpg)  
+
 
 ####CPU Temperture  
 __The temperture drop to 44 because I add a fan on CPU.__  
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-cpuTemp-2d.png">  
+![](/images/2014-07-21/20140721-cpuTemp-2d.png)  
 
 ####CPU Used Percentage  
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-cpuUsage-2d.png">  
+![](/images/2014-07-21/20140721-cpuUsage-2d.png)  
 
 ####PID Count  
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-PIDs-2d.png">  
+![](/images/2014-07-21/20140721-PIDs-2d.png)  
 
 ####Memory Usage  
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-memUsage-2d.png">  
+![](/images/2014-07-21/20140721-memUsage-2d.png)  
 
 ####Mount point Usage  
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-mountPoint-home-2d.png">  
+![](/images/2014-07-21/20140721-mountPoint-home-2d.png)  
 
 ####Mount Point Percentage  
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-mountPointPercent-2d.png">  
+![](/images/2014-07-21/20140721-mountPointPercent-2d.png)  
 
 ####HDD I/O  
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-hdd-sda1-2d.png">  
+![](/images/2014-07-21/20140721-hdd-sda1-2d.png)  
 
 ####eth0 I/O  
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-interface-eth0-2d.png">  
+![](/images/2014-07-21/20140721-interface-eth0-2d.png)  
 
 ####eth1 I/O  
-<img src="https://github.com/oopsmonk/markdown-note/raw/master/pictures/20140721-interface-eth1-2d.png">  
+![](/images/2014-07-21/20140721-interface-eth1-2d.png)  
 
 
