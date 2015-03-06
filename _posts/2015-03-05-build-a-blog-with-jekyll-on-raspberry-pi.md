@@ -31,12 +31,12 @@ Requirements:
 If you have no idea with these things, here are useful resources:  
 [How Jekyll Works](http://jekyllbootstrap.com/lessons/jekyll-introduction.html)  
 [Jekyll Installation](http://jekyllrb.com/docs/installation/)  
-[Minimal Mistake Theme Setup](http://mmistakes.github.io/minimal-mistakes/theme-setup/)
-[GitHub Pages](https://pages.github.com/)
+[Minimal Mistake Theme Setup](http://mmistakes.github.io/minimal-mistakes/theme-setup/)  
+[GitHub Pages](https://pages.github.com/)  
 [Getting started - Grunt](http://gruntjs.com/getting-started)  
 
 ##Jekyll Installation  
-Because some packages in Raspberry Pi's repository are out of date, we are going to install packages manually.  
+Because some packages are out of date in Raspberry Pi's repository, we are going to install packages manually.  
 Jekyll requirements:  
 
 * Ruby  
