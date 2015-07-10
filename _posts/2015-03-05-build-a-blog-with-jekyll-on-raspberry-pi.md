@@ -114,7 +114,7 @@ __[Use octopress](https://mmistakes.github.io/minimal-mistakes/theme-setup/#new-
 __[Use vim-jekyll](https://github.com/parkr/vim-jekyll)__  
 After vim-jekyll is installed, add configuration in `.vimrc` is shown below:  
 
-```
+{% highlight vim %}
 let g:jekyll_post_dirs = ['_posts']
 let g:jekyll_post_extension = '.md'
 let g:jekyll_post_template = [
@@ -131,7 +131,8 @@ let g:jekyll_post_template = [
 \ 'date: "JEKYLL_DATE"',
 \ '---',
 \ '']
-```
+{% endhighlight %}    
+
 ##Images minimization  
 Gruent is a JavaScript Task Runner performs repetitive tasks. Minimal Mistakes have a Gruntfile already, we can use it for minimizing images and JavaScript, but we have to install Gruent first and install dependencies via `npm install`. By default it minimizes all scripts into `scripts.min.js` and optimize .jpg, .png, and .svg files in the **images/** folder.  
 Alternatively, you can use `grunt imagemin` to minimize images only.
